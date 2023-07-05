@@ -8,19 +8,15 @@ cd = clamd.ClamdUnixSocket() # Connect to Clamd
 def scan_file(file):    
     response = cd.scan(app.config['UPLOAD_FOLDER'] + file.filename)
     response = list(response.items())
-    print('scsanning file')
     # Check if file is clean, infected or not found
 
     if (response[0][1][1]) == None:
-        
         return('File clean')
         
     elif (response[0][1][1]) == 'No such file or directory.':
-        
         return('File not found')
         
-    else:
-        
+    else: 
         return('File infected:  ' + response[0][1][1])    
 
 
@@ -40,16 +36,12 @@ def upload_file():
     return 'File not uploaded'
     
 
-if __name__ == '__main__':
-    
-    
+if __name__ == '__main__': 
     try:
-        
         cd.ping() # Test Clamd
         cd.reload() # Reload Clamd Database
         app.run('0.0.0.0', port=8000) # Run Flask app
         
-    except:
-        
+    except:     
         print('Clamd not running or flask app not running')
         
