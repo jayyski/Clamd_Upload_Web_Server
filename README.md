@@ -1,4 +1,5 @@
 # Clamd_Upload_Web_Server
+This is a simple web server that lets you uploads file and uses clamd to check if it is malicious.
 
 Install Clamd
 
